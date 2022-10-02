@@ -7,7 +7,23 @@ class Card {
         this.value = value;
         this.suit = suit;
     }
+    actualCard () {
+        switch (this.value) {
+            case 1: 
+                return 'Ace';
+            case 11: 
+                return 'Jack';
+            case 12: 
+                return'Queen'
+            case 13: 
+                return'King'
+            default:
+                return this.value;
+            }
+        } 
 }
+        
+
 
 class Deck {
     constructor(cards = newDeck()){
@@ -63,6 +79,23 @@ function compareCards() {
     let player2Card = player2Deck.drawCard(); 
 
     if (player1Card.value > player2Card.value){
+        console.log(`Player one card: ${player1Card.actualCard()}.  Player two card: ${player2Card.actualCard()}.`);
+        console.log(`Player one wins the hand.  Player one now has ${player1Score += 1} points.`);
+        return;
+       } else if (player2Card.value > player1Card.value){
+        console.log(`Player one card: ${player1Card.actualCard()}.  Player two card: ${player2Card.actualCard()}.`);
+        console.log(`Player two wins the hand. Player two now has ${player2Score += 1} points.`);
+        return;
+       } else {
+        console.log(`Player one card: ${player1Card.actualCard()}.  Player two card: ${player2Card.actualCard()}.`);
+        console.log(`Tie!  Player one has ${player1Score} points.  Player two has ${player2Score} points.`);
+        return;
+       }
+    }
+   
+   
+   
+    /* if (player1Card.value > player2Card.value){
     console.log(`Player one card: ${player1Card.value} of ${player1Card.suit}.  Player two card: ${player2Card.value} of ${player2Card.suit}.`);
     console.log(`Player one wins the hand.  Player one now has ${player1Score += 1} points.`);
     return;
@@ -75,14 +108,14 @@ function compareCards() {
     console.log(`Tie!  Player one has ${player1Score} points.  Player two has ${player2Score} points.`);
     return;
    }
-}
+} */
 
 function determineWinner(){
     if (player1Deck.numberofCards === 0){
         if (player1Score > player2Score){
-            return console.log(`Player 1 wins with a score of ${player1Score} over Player2's score of ${player2Score}.`);
+            return console.log(`Player 1 wins with a score of ${player1Score} over Player 2's score of ${player2Score}.`);
         } else if (player2Score > player1Score){
-            return console.log(`Player 2 wins with a score of ${player2Score} over Player2's score of ${player1Score}.`);
+            return console.log(`Player 2 wins with a score of ${player2Score} over Player 1's score of ${player1Score}.`);
         } else {
             return console.log(`It's a tie!  Both players have scored a score of 13 points each.`)
         }
